@@ -1,12 +1,126 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meu Site no GitHub Pages</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evernote - Organize sua vida</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Olá, mundo!</h1>
-  <p>Meu site está hospedado no GitHub Pages 🚀</p>
+    <!-- Header com logo e navegação -->
+    <header class="header">
+        <div class="logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/65/Evernote_Logo_2018.svg" alt="Evernote Logo">
+        </div>
+        <nav>
+            <a href="#">Planos</a>
+            <a href="#">Recursos</a>
+            <a href="#">Ajuda & App</a>
+            <a href="#">Acessar a empresa</a>
+        </nav>
+    </header>
+
+    <!-- Banner principal -->
+    <section class="banner">
+        <div class="banner-text">
+            <h1>Sinta-se organizado sem precisar se esforçar</h1>
+            <p>O Evernote ajuda a capturar e a organizar ideias, projetos e listas de tarefas, para que nada lhe escape.</p>
+            <button class="cta-button">Registre-se Gratuitamente</button>
+        </div>
+        <div class="banner-image">
+            <img src="https://www.evernote.com/img/main-hero-device.png" alt="Imagem do Evernote">
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2025 Evernote. Todos os direitos reservados.</p>
+    </footer>
 </body>
 </html>
+
+/* Resetando o estilo padrão do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #F4F9F4;
+}
+
+/* Cabeçalho */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #2F8D46;
+    color: #fff;
+}
+
+.header .logo img {
+    width: 100px;
+}
+
+.header nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+/* Banner */
+.banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2F8D46;
+    color: white;
+    padding: 50px 20px;
+}
+
+.banner-text {
+    max-width: 600px;
+}
+
+.banner h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.banner p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    background-color: #fff;
+    color: #2F8D46;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.cta-button:hover {
+    background-color: #f1f1f1;
+}
+
+/* Imagem no banner */
+.banner-image img {
+    max-width: 450px;
+}
+
+/* Rodapé */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
