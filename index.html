@@ -161,6 +161,141 @@
                 <li>**Consumo Consciente:** Compre de empresas com práticas sustentáveis e evite o desperdício.</li>
             </ul>
         </section>
+        <section id="game-section">
+    <div id="game-container">
+        <h2>♻️ Reciclagem Clicker!</h2>
+
+        <p>Pontos de Reciclagem: <span id="score">0</span></p>
+
+        <button id="recycle-button" title="Clique para Reciclar!">
+            🗑️ RECICLE!
+        </button>
+
+        <hr>
+
+        <h3>Melhorias</h3>
+        <div id="upgrades">
+            <button id="upgrade1-button" class="upgrade-button" data-cost="10" data-multiplier="2">
+                Compra Lixeira Melhor (Custo: 10 Pontos)
+            </button>
+            <p>Clicks por Reciclagem: <span id="click-value">1</span></p>
+        </div>
+    </div>
+</section>
+
+<style>
+#game-section {
+    padding: 40px 0;
+    background-color: #f7fff7; /* Um fundo suave para destacar o jogo */
+    text-align: center;
+}
+
+#game-container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    border: 2px solid #388e3c; /* Borda mais verde */
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 0 auto; /* Centraliza */
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#recycle-button {
+    font-size: 2em;
+    padding: 20px 30px;
+    margin: 15px 0;
+    cursor: pointer;
+    background-color: #4CAF50; /* Verde de Reciclagem */
+    color: white;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 0 #388e3c;
+    transition: all 0.1s;
+}
+
+#recycle-button:hover {
+    background-color: #66bb6a;
+}
+
+#recycle-button:active {
+    /* Efeito de "apertar" */
+    transform: translateY(4px);
+    box-shadow: 0 0 0 #388e3c;
+}
+
+.upgrade-button {
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    background-color: #00bcd4; /* Azul para destaque da melhoria */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.upgrade-button:hover:not(:disabled) {
+    background-color: #00acc1;
+}
+
+.upgrade-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    color: #666;
+}
+</style>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    let score = 0; // Pontuação inicial
+    let clickValue = 1; // Pontos ganhos por clique
+
+    const scoreElement = document.getElementById('score');
+    const clickValueElement = document.getElementById('click-value');
+    const recycleButton = document.getElementById('recycle-button');
+    const upgrade1Button = document.getElementById('upgrade1-button');
+    const upgrade1Cost = parseInt(upgrade1Button.getAttribute('data-cost'));
+    const upgrade1Multiplier = parseInt(upgrade1Button.getAttribute('data-multiplier'));
+
+    // 1. Função de Atualizar o Placar
+    function updateDisplay() {
+        scoreElement.textContent = score;
+        clickValueElement.textContent = clickValue;
+        
+        // Verifica se o usuário pode comprar a melhoria
+        if (score >= upgrade1Cost) {
+            upgrade1Button.disabled = false;
+        } else {
+            upgrade1Button.disabled = true;
+        }
+    }
+
+    // 2. Evento de Clique no Lixo
+    recycleButton.addEventListener('click', () => {
+        score += clickValue; // Adiciona os pontos com base no valor atual
+        updateDisplay();
+    });
+
+    // 3. Evento de Compra da Melhoria
+    upgrade1Button.addEventListener('click', () => {
+        if (score >= upgrade1Cost && !upgrade1Button.disabled) {
+            score -= upgrade1Cost;          // Subtrai o custo
+            clickValue *= upgrade1Multiplier; // Multiplica o valor do clique
+            
+            // Marca como comprado e desativa (para este exemplo, é uma compra única)
+            upgrade1Button.disabled = true; 
+            upgrade1Button.textContent = 'Lixeira Melhor COMPRADA! 🎉';
+
+            updateDisplay();
+        }
+    });
+
+    // Inicializa o placar
+    updateDisplay();
+});
+</script>
 
 </script>
         <section id="contato">
